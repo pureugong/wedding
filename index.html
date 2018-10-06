@@ -172,9 +172,6 @@
 .w_skin_photo1 .btn a.full {background:url(/resources/skin/w_skin_photo1/icon_full2.png) no-repeat 90% center; background-size:12px auto; -webkit-background-size:12px auto; -moz-background-size:12px auto;}
 .w_skin_photo1 #movie .btn a { text-align:left; text-indent:14px;}
 
-#location .map_wrap {margin:0px;line-height:10%;box-sizing:border-box; border:none; padding-top:30px; position:relative;}
-#location .map_wrap img {width:100% !important; height:auto !important; box-sizing:border-box;}
-#location .map_wrap iframe {width:100% !important; height:200px !important; box-sizing:border-box;}
 #location .address {padding-left:20px; min-height:60px; padding-right:75px; text-align:left; position:relative;}
 #location .address dt {font-size:13px; font-weight:bold; color:#000; padding-bottom:5px; font-weight:400;}
 #location .address dd {font-size:13px; line-height:150%;}
@@ -317,9 +314,8 @@
         <div id="location" class="pages input_etel_focus input_address_focus">
 
             <h2 style="text-align:left; padding:46px 0 15px 18px;"><img src="./wedding_files/title_img_4.png" alt="location" width="200"></h2>
+            <div id="map" style="height: 320px; width: 100%; margin-top: 20px;"></div>
 
-
-            <div class="map_wrap"><iframe id="incGoogleMap" src="http://mcard.barunnfamily.com/Invitations/NaverMap?lat=35.8502904&lng=129.2772103" width="750" height="320 frameborder=" 0'="" style="border: 0;" allowfullscreen=""></iframe></div>
 
             <dl class="address">
                 <dt><span class="input_hall">경주 현대호텔</span> <span class="input_floor">컨벤션 C 홀</span></dt>
@@ -343,7 +339,20 @@
     <!-- / 스킨 -->
     </div>
 
+    <script>
+        // Initialize and add the map
+        function initMap() {
+          var uluru = {lat: 35.8502904, lng: 129.2772103};
+          var map = new google.maps.Map(
+              document.getElementById('map'), {zoom: 14, center: uluru});
+          var marker = new google.maps.Marker({position: uluru, map: map});
+        }
+    </script>
     
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArQ8dnU0VEAkXJa9y8i62XrSPVN8VQ6K0&callback=initMap">
+    </script>
+
     <script type="text/javascript">
         // google analytics
     </script>
